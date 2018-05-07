@@ -13,12 +13,12 @@ rake db:{drop,create,migrate,seed}
 rake db:test:prepare
 ```
 
-Use TDD to implement the following user stories:
+Use TDD to implement the following user stories. If you create Model methods, make sure you test those too!
 
 ```
 As a visitor,
 When I visit `/comedians`
-Then I see a list of comedians with the following 
+Then I see a list of comedians with the following
 information for each comedian:
   * Name
   * Age
