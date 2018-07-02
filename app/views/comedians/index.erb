@@ -4,6 +4,7 @@
   <% comedian.specials.each do |special| %>
     <li> <%= special.name %> </li>
   <% end %>
+  <li> <%= "Number of specials: #{comedian.specials_count}" %></li>
 </ul>
 <% end %>
 
