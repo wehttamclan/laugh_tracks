@@ -2,8 +2,8 @@ RSpec.describe 'a visitor' do
   context 'visiting /comedians' do
     it 'should show a list of specials for each comedian' do
       comedian1 = Comedian.create(name: "Steven Wright", age: 12)
-      special1  = Special.create(name: "I have a pony.")
-      special2  = Special.create(name: "I still have a pony.")
+      special1  = comedian1.specials.create(name: "I have a pony.")
+      special2  = comedian1.specials.create(name: "I still have a pony.")
 
       pony = special1.name
       still_a_pony = special2.name
