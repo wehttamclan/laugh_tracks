@@ -9,15 +9,19 @@ RSpec.describe 'a visitor' do
       still_a_pony = special2.name
 
       visit '/comedians'
-save_and_open_page
+
       expect(page).to have_content(pony)
       expect(page).to have_content(still_a_pony)
     end
-    xit 'should show average age of comedians' do
+    it 'should show average age of comedians' do
+      comedian1 = Comedian.create(name: "Bill Hicks", age: 34)
+      comedian2 = Comedian.create(name: "Steven Wright", age: 12)
+
+      expected = 23
 
       visit '/comedians'
 
-      expect(page).to have_content()
+      expect(page).to have_content("Average age: #{expected}")
     end
     xit 'should show count of specials for each comedian' do
 
