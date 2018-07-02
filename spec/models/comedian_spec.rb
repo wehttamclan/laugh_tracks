@@ -12,4 +12,25 @@ RSpec.describe Comedian do
       end
     end
   end
+  describe 'Class Methods' do
+    describe 'average_age' do
+      it 'should calculate average age of all comedians' do
+        Comedian.create(name: "Bill Hicks", age: 34)
+        Comedian.create(name: "Steven Wright", age: 12)
+
+        expect(Comedian.average_age).to eq(23)
+      end
+
+      it 'should calculate count of specials for each comedian' do
+        comedian1 = Comedian.create(name: "Steven Wright", age: 12)
+        comedian1.specials.create(name: "I have a pony.")
+        comedian1.specials.create(name: "I still have a pony.")
+        comedian2 = Comedian.create(name: "Bill Hicks", age: 12)
+        comedian2.specials.create(name: "Live at Turing.")
+
+        expect(comedian1.specials_count).to eq(2)
+        expect(comedian2.specials_count).to eq(1)
+      end
+    end
+  end
 end

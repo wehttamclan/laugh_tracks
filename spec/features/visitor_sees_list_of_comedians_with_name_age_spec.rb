@@ -4,13 +4,10 @@ RSpec.describe 'a visitor' do
       comedian1 = Comedian.create(name: "Bill Hicks", age: 34)
       comedian2 = Comedian.create(name: "Steven Wright", age: 12)
 
-      hicks = comedian1.name
-      wright = comedian2.age
-
       visit '/comedians'
 
-      expect(page).to have_content(hicks)
-      expect(page).to have_content(wright)
+      expect(page).to have_content("#{comedian1.name}, #{comedian1.age}")
+      expect(page).to have_content("#{comedian2.name}, #{comedian2.age}")
     end
   end
 end
